@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: spring-cloud-gcp-trace-kubernetes-svc
+  labels:
+    app: spring-cloud-gcp-trace-kubernetes
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: spring-cloud-gcp-trace-kubernetes

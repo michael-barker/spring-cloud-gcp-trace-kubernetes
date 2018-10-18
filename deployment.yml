@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-cloud-gcp-trace-kubernetes
+spec:
+  selector:
+    matchLabels:
+      app: spring-cloud-gcp-trace-kubernetes
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: spring-cloud-gcp-trace-kubernetes
+    spec:
+      containers:
+      - name: spring-cloud-gcp-trace-kubernetes
+        image: gcr.io/micrometer-stackdriver/spring-cloud-gcp-trace-kubernetes
+        ports:
+        - containerPort: 8080
+          name: server
